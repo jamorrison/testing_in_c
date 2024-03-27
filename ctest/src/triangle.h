@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 enum type {
     INVALID = -1,
     SCALENE = 0,
