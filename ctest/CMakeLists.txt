@@ -31,5 +31,6 @@ endif()
 # Build subcommands
 add_subdirectory(src)
 
-# Install
-install(TARGETS triangle DESTINATION "${CMAKE_INSTALL_BINDIR}")
+include(CTest)
+
+add_subdirectory(test)
