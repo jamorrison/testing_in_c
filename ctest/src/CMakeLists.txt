@@ -1,12 +1,6 @@
 # Minimum CMake version
 cmake_minimum_required(VERSION 3.21)
 
-# Source and header files
-file(GLOB sources *.c)
-file(GLOB headers *.h)
-
-# triangle.c is what executable is compiled from
-list(REMOVE_ITEM sources triangle.c)
-
-# Build triangle executable
-add_executable(triangle triangle.c)
+# Need to create a core library that gets linked with executables
+add_library(core triangle.c triangle.h)
+target_include_directories(core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
