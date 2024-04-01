@@ -1,8 +1,9 @@
 #include "triangle.h"
 
 // Decision-table based tests
+// Taken from Software Testing, 5th edition Table 7.11 (impossible tests not included)
+
 int main() {
-    // Taken from Software Testing, 5th edition Table 7.11 (impossible tests not included)
     if (-1 != triangle_identifier(4, 1, 2)) { return 1; }
     if (-1 != triangle_identifier(1, 4, 2)) { return 1; }
     if (-1 != triangle_identifier(1, 2, 4)) { return 1; }

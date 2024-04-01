@@ -1,8 +1,9 @@
 #include "triangle.h"
 
 // Normal boundary value analysis tests
+// Taken from Software Testing, 5th edition Table 5.1
+
 int main() {
-    // Taken from Software Testing, 5th edition Table 5.1
     if ( 1 != triangle_identifier(100, 100,   1)) { return 1; }
     if ( 1 != triangle_identifier(100, 100,   2)) { return 1; }
     if ( 2 != triangle_identifier(100, 100, 100)) { return 1; }
