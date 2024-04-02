@@ -17,6 +17,9 @@ project(triangle
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+# Standard installation paths
+include(GNUInstallDirs)
+
 # Default build in release mode
 # Can be overridden with: cmake -DCMAKE_BUILD_TYPE=Debug
 if(NOT CMAKE_BUILD_TYPE)
@@ -31,5 +34,15 @@ endif()
 # Build subcommands
 add_subdirectory(src)
 
-# Install
-install(TARGETS triangle DESTINATION "${CMAKE_INSTALL_BINDIR}")
+if(NOT RUN_TESTS)
+    set(RUN_TESTS true)
+endif()
+
+if(RUN_TESTS)
+    include(CTest)
+
+    # In the future, I could have CUnit pulled down and compiled only as needed and wouldn't need to ship with it
+    include_directories(CUnit/CUnit)
+
+    add_subdirectory(test)
+endif()
